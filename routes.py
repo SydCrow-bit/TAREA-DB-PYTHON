@@ -24,6 +24,7 @@ def sobrenosotros():
 
     return render_template('sobrenosotros.html', form=formulario)
 
+#METODO PARA CARGAR LAS TAREAS
 @app.context_processor
 def cargar_tareas():
     tareas = Tarea.query.all()
