@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi App</title>
+</head>
+<body>
+
+    <h1>MENU PRINCIPAL</h1>
+
+    <ul>
+        <li><a href="/index">Inicio</a></li>
+        <li><a href="/sobrenosotros">Agregar tareas</a></li>
+        <!--AQUI AGREGEN SUS ENLACES DE EDITAR Y ELIMINAR-->
+    </ul>
+    <!--- PARA MOSTRAR TABLA TAREAS -->
+    <hr>
+
+    <h3 style="text-align:center;">Tareas registradas</h3>
+
+    {% if tareas %}
+    <div style="display:flex; justify-content:center;">
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse; text-align:center;">
+        <tr style="background-color:#f2f2f2;">
+            <th>ID</th>
+            <th>Título</th>
+        </tr>
+
+        {% for tarea in tareas %}
+        <tr>
+            <td>{{ tarea.id }}</td>
+            <td>{{ tarea.titulo }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    </div>
+    {% else %}
+    <p style="text-align:center;">No hay tareas.</p>
+    {% endif %}
+
+    <hr>
+
+    {% block contenido %}
+    {% endblock %}
+
+</body>
+</html>

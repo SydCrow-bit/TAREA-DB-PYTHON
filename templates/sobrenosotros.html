@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<h2>Taller Apps - Guardar Tareas </h2>
+
+<form action="/sobrenosotros" method="post">
+    {{ form.csrf_token() }}
+    {{ form.titulo.label }}
+    {{ form.titulo }}
+    {{ form.enviar }}
+</form>
+
+{% if titulo %}
+    <h2>{{ titulo }}</h2>
+{% endif %}
+
+{% endblock %}
