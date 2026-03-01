@@ -24,14 +24,17 @@
         <tr style="background-color:#f2f2f2;">
             <th>ID</th>
             <th>Título</th>
-        </tr>
+            <th>Acciones</th> </tr>
 
         {% for tarea in tareas %}
         <tr>
             <td>{{ tarea.id }}</td>
             <td>{{ tarea.titulo }}</td>
+            <td>
+                <a href="/eliminar/{{ tarea.id }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+            </td>
         </tr>
-    {% endfor %}
+        {% endfor %}
     </table>
     </div>
     {% else %}
