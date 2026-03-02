@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block contenido %}
+    <h2>Modificar Tarea</h2>
+    <form method="POST">
+        {{ form.csrf_token }}
+        {{ form.titulo.label }} {{ form.titulo }}
+        <button type="submit">Actualizar</button>
+        <a href="{{ url_for('sobrenosotros') }}">Cancelar</a>
+    </form>
+{% endblock %}
