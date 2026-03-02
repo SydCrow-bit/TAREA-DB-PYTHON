@@ -11,6 +11,7 @@
     <ul>
         <li><a href="/index">Inicio</a></li>
         <li><a href="/sobrenosotros">Agregar tareas</a></li>
+        <li><a href="/actualizar/1">Modificar datos registrados</a></li>
         <!--AQUI AGREGEN SUS ENLACES DE EDITAR Y ELIMINAR-->
     </ul>
     <!--- PARA MOSTRAR TABLA TAREAS -->
@@ -25,11 +26,20 @@
             <th>ID</th>
             <th>Título</th>
         </tr>
+<!---1 -->
 
         {% for tarea in tareas %}
         <tr>
             <td>{{ tarea.id }}</td>
             <td>{{ tarea.titulo }}</td>
+           <!---2 inicio --> 
+            <td>
+    <a href="{{ url_for('actualizar', id=tarea.id) }}" style="color: #2c3e50; font-weight: bold; text-decoration: none;">
+        [ Modificar ]
+    </a>
+</td>
+<!---fin -->
+
         </tr>
     {% endfor %}
     </table>
