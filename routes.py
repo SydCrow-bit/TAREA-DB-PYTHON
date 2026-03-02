@@ -1,6 +1,6 @@
 # routes.py
 from app import app, db
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 import formularios
 from models import Tarea
 
@@ -29,3 +29,12 @@ def sobrenosotros():
 def cargar_tareas():
     tareas = Tarea.query.all()
     return dict(tareas=tareas)
+
+
+
+@app.route('/eliminar/<int:id>')
+def eliminar(id):
+    tarea = Tarea.query.get_or_404(id) 
+    db.session.delete(tarea)           
+    db.session.commit()                
+    return redirect(url_for('index'))

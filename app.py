@@ -2,7 +2,7 @@ from flask import Flask
 from extension import db
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret1234'
+app.config['SECRET_KEY'] = 'admin'
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:@localhost:3306/db_tareas"
 db.init_app(app)
 
